@@ -253,14 +253,3 @@
  }
  
  bool AudioCodingImpl::RegisterReceiveCodec(AudioDecoder* receive_codec) {
---- v8/src/debug.cc.orig	2015-01-25 14:39:37 UTC
-+++ v8/src/debug.cc
-@@ -573,7 +573,7 @@
-   thread_local_.step_out_fp_ = 0;
-   // TODO(isolates): frames_are_dropped_?
-   base::NoBarrier_Store(&thread_local_.current_debug_scope_,
--                        static_cast<base::AtomicWord>(0));
-+                        reinterpret_cast<base::AtomicWord>(0));
-   thread_local_.restarter_frame_function_pointer_ = NULL;
- }
- 
